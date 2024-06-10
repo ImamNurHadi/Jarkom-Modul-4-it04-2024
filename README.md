@@ -22,7 +22,7 @@ Berikut merupakan step pengerjaan kami untuk Classing subnet
 
 Gunakan formula berikut untuk menentukan ukuran subnet:
 
-\[ 2^n - 2 \geq 	ext{jumlah host} \]
+\[ 2^n - 2  >= {jumlah host} \]
 
 dimana \( n \) adalah jumlah bit yang dialokasikan untuk host.
 
