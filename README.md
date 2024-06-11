@@ -164,4 +164,6 @@ Router ACEH menuju node A4 karena sebelum SUMATERA dengan gateaway fa0/1 SUMATER
 Router SUMATERA menuju node A3 karena sebelum ACEH dengan gateaway fa0/0 SUMATERA-UTARA
 
 ### Praktek Langsung
-![Video_Routing.mp4](Resource/Video_Routing.mp4)
+https://drive.google.com/file/d/1Hfbzz-_OUvJXV-50-y5HRVHpSPsXdkxm/view?usp=drive_link
+
+atau bisa download di resource
