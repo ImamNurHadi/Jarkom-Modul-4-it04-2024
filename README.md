@@ -128,3 +128,37 @@ Seperti inilah hasil penggabungan kami
 ### Hasil CPT
 Maka hasil cpt akan sebagai berikut 
 ![Gambar_CPT.png](Resource/Gambar_CPT.png)
+
+
+### Routing
+#### Subnetting
+Dalam pengerjaan ini, kami melakukan subnetting dengan metode berikut :
+1. Memilih interface yang dipilih, ```interface <Nama interface>```
+2. Melakukan input ip address yang sudah di bagi dengan netmasknya sesuai pembagian prefix ```ip address <IP address> <Netmask>```
+3. Perubahan di jalankan dengan command ```no shutdown``` atau bisa disingkat ```no sh``
+
+Contoh penerapan :
+```sh
+int fa0/1
+ip address 192.235.132.1 255.255.255.128
+no sh
+```
+#### Routing
+Dalam pengerjaan ini, kami melakukan subnetting dengan metode berikut :
+1. Memilih rute untuk di set up ```ip route <Destination network ID> <Netmask> <Gateway>```
+   - Destination network ID adalah network ID yang kita tuju, jika A1 menuju A5 maka A5 yang dimasukkan
+   - Netmask adalah netmask dari node yang dituju
+   - Gateaway merupakan ip dari interface yang menghalangi rute kita diawal
+
+Contoh penerapan melakukan route ACEH menuju SUMATERA :
+Router ACEH
+```sh
+ip route 192.235.134.0 255.255.255.224 192.235.133.1
+```
+Router SUMATERA
+```sh
+ip route 192.235.133.0 255.255.255.252 192.235.134.2
+```
+
+Router ACEH menuju node A4 karena sebelum SUMATERA dengan gateaway fa0/1 SUMATERA-UTARA
+Router SUMATERA menuju node A3 karena sebelum ACEH dengan gateaway fa0/0 SUMATERA-UTARA
