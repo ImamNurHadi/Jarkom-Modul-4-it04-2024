@@ -47,6 +47,31 @@ Pembagian ip lakukan dengan tahap :
 2. Lalu akan dibagi 2 cabang yaitu wilayah kanan kiri dan wilayah bawah, atau bisa disebut H1 dan H2. Ip ditentukan dengan ip address pada subnet dibagi dengan yang lebih rendah. Disini /14 dibagi dengan /16 hasilnya yaitu 26144/65536 dan hasilnya adalah 4. Maka hasil tersebut ditaruh pada bit ke 3 ip dengan subnet lebih kecil yaitu /16.
 3. Selanjutnya kita bisa lihat lagi untuk subnet lebih tinggi akan dibagi 256, untuk hasilnya 32768/256 = 128 maka kita taruh ke bit 4 dari ip dengan subnet lebih rendah, jika masih cukup (batas maksimalnya /19 bit ke 4 adalah 255) maka kita taruh ke bit 4, jika tidak cukup sisanya ditaruh ke bit 3. Namun karena turunannya bit ke
 4. Namun untuk ip dengan prefix /25 dan /28 kita bisa langsung taruh 128 ke ip prefix /28 karena tidak bisa dibagi 256 dan masih cukup untuk bit ke 4 dari /28 
+## Tabel Subnet
+
+| Subnet | Network ID       | Netmask            | Broadcast         | Range IP                        |
+|--------|------------------|--------------------|-------------------|---------------------------------|
+| A1     | 192.235.132.0    | 255.255.255.128    | 192.235.132.127   | 192.235.132.1 - 192.235.132.126 |
+| A2     | 192.235.132.128  | 255.255.255.240    | 192.235.132.143   | 192.235.132.129 - 192.235.132.142 |
+| A3     | 192.235.133.0    | 255.255.255.252    | 192.235.133.3     | 192.235.133.1 - 192.235.133.2   |
+| A4     | 192.235.134.0    | 255.255.255.224    | 192.235.134.31    | 192.235.134.1 - 192.235.134.30  |
+| A5     | 192.235.136.0    | 255.255.255.252    | 192.235.136.3     | 192.235.136.1 - 192.235.136.2   |
+| A6     | 192.235.140.0    | 255.255.255.0      | 192.235.140.255   | 192.235.140.1 - 192.235.140.254 |
+| A7     | 192.235.148.0    | 255.255.255.252    | 192.235.148.3     | 192.235.148.1 - 192.235.148.2   |
+| A8     | 192.237.0.0      | 255.255.255.252    | 192.237.0.3       | 192.237.0.1 - 192.237.0.2       |
+| A9     | 192.235.1.0      | 255.255.255.252    | 192.235.1.3       | 192.235.1.1 - 192.235.1.2       |
+| A10    | 192.235.128.0    | 255.255.255.0      | 192.235.128.255   | 192.235.128.1 - 192.235.128.254 |
+| A11    | 192.235.64.0     | 255.255.255.252    | 192.235.64.3      | 192.235.64.1 - 192.235.64.2     |
+| A12    | 192.235.32.0     | 255.255.255.0      | 192.235.32.255    | 192.235.32.1 - 192.235.32.254   |
+| A13    | 192.235.16.0     | 255.255.255.252    | 192.235.16.3      | 192.235.16.1 - 192.235.16.2     |
+| A14    | 192.235.8.0      | 255.255.255.224    | 192.235.8.31      | 192.235.8.1 - 192.235.8.30      |
+| A15    | 192.235.0.0      | 255.255.248.0      | 192.235.7.255     | 192.235.0.1 - 192.235.7.254     |
+| A16    | 192.235.68.0     | 255.255.255.252    | 192.235.68.3      | 192.235.68.1 - 192.235.68.2     |
+| A17    | 192.235.12.0     | 255.255.255.248    | 192.235.12.7      | 192.235.12.1 - 192.235.12.6     |
+| A18    | 192.235.36.0     | 255.255.255.252    | 192.235.36.3      | 192.235.36.1 - 192.235.36.2     |
+| A19    | 192.235.20.0     | 255.255.255.192    | 192.235.20.63     | 192.235.20.1 - 192.235.20.62    |
+| A20    | 192.235.8.0      | 255.255.255.192    | 192.235.8.63      | 192.235.8.1 - 192.235.8.62      |
+| A21    | 192.235.4.0      | 255.255.252.0      | 192.235.7.255     | 192.235.4.1 - 192.235.7.254     |
 
 A. Penggabungan dengan metoded CIDR dan hasil pembagian prefix dan subnetting
 1. Setiap wilayah dan jalur router memiliki A Class masing-masing dengan subnet yang cukup untuk dibagi IP nya terhadap beberapa host dan device.
