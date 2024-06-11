@@ -162,3 +162,6 @@ ip route 192.235.133.0 255.255.255.252 192.235.134.2
 
 Router ACEH menuju node A4 karena sebelum SUMATERA dengan gateaway fa0/1 SUMATERA-UTARA
 Router SUMATERA menuju node A3 karena sebelum ACEH dengan gateaway fa0/0 SUMATERA-UTARA
+
+### Praktek Langsung
+![Video_Routing.mp4](Resource/Video_Routing.mp4)
