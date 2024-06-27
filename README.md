@@ -3,6 +3,569 @@
 | Imam Nurhadi    | 5027221046     | 
 | Jojo     | 5027221062     |
 
+# VLSM - GN3
+Teknik subnetting yang dikenal sebagai Variable Length Subnet Masking (VLSM) merupakan teknik yang digunakan untuk memaksimalkan pembagian alamat IP di dalam jaringan. Netmask besar disesuaikan dengan banyaknya komputer atau host yang membutuhkan alamat IP.
+VLSM membagi jaringan besar menjadi subnet yang lebih kecil. Setiap subnet kemudian diberi netmask yang sesuai dengan jumlah host yang dibutuhkannya. Dengan demikian, netmask dengan jumlah host yang lebih besar akan memiliki bitmask yang lebih sedikit, sementara netmask dengan jumlah host yang lebih sedikit akan memiliki bitmask yang lebih besar.
+
+Metode VLSM dilakukan menggunakan platform GNS3. Berikut adalah penjelasan lebih lanjutnya : 
+## Tree
+Berikut adalah tree untuk pembagian IP dimulai dari 10.78.0.0/20
+![vlsmtree-it29](https://github.com/J0see1/Jarkom-Modul-4-IT29/assets/143849730/010c5484-f433-46b8-b9ba-bbdf45a2eae5)
+## Pembagian IP
+Berikut adalah pembagian IP yang diperoleh dari hasil pemecahan tree menjadi jaringan yang lebih kecil :
+![image](https://github.com/J0see1/Jarkom-Modul-4-IT29/assets/143849730/20e9dfe3-8102-421e-9eeb-bb85d61c4241)
+## Konfigurasi Network 
+**JAWA**
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+#A3
+auto eth1
+iface eth1 inet static
+address 10.78.21.197
+netmask 255.255.255.252
+
+#A2
+auto eth2
+iface eth2 inet static
+address 10.78.21.193
+netmask 255.255.255.252
+
+#A1
+auto eth3
+iface eth3 inet static
+address 10.78.21.189
+netmask 255.255.255.252
+```
+**SULAWESI**
+```
+auto lo
+iface lo inet loopback
+
+#A1
+auto eth0
+iface eth0 inet static
+address 10.78.21.190
+netmask 255.255.255.252
+gateway 10.78.21.189
+
+#A6
+auto eth1
+iface eth1 inet static
+address 10.78.21.161
+netmask 255.255.255.248
+
+#A4
+auto eth2
+iface eth2 inet static
+address 10.78.20.1
+netmask 255.255.255.128
+```
+**KALIMANTAN**
+```
+auto lo
+iface lo inet loopback
+
+#A2
+auto eth0
+iface eth0 inet static
+address 10.78.21.194
+netmask 255.255.255.252
+gateway 10.78.21.193
+
+#A9
+auto eth1
+iface eth1 inet static
+address 10.78.21.201
+netmask 255.255.255.252
+```
+**SUMATERA**
+```
+auto lo
+iface lo inet loopback
+
+#A3
+auto eth0
+iface eth0 inet static
+address 10.78.21.198
+netmask 255.255.255.252
+gateway 10.78.21.197
+
+#A16
+auto eth1
+iface eth1 inet static
+address 10.78.21.205
+netmask 255.255.255.252
+
+#A18
+auto eth2
+iface eth2 inet static
+address 10.78.21.65
+netmask 255.255.255.224
+```
+**PC-Marisa**
+```
+#A4
+auto eth0
+iface eth0 inet static
+address 10.78.20.2
+netmask 255.255.255.128
+gateway 10.78.20.1
+```
+**PC-Gorontalo**
+```
+#A4
+auto eth0
+iface eth0 inet static
+address 10.78.20.3
+netmask 255.255.255.128
+gateway 10.78.20.1
+```
+**MALUKU-UTARA**
+```
+auto lo
+iface lo inet loopback
+
+#A4
+auto eth0
+iface eth0 inet static
+address 10.78.20.4
+netmask 255.255.255.128
+gateway 10.78.20.1
+
+#A5
+auto eth1
+iface eth1 inet static
+address 10.78.0.1
+netmask 255.255.248.0
+```
+**Tobelo**
+```
+#A5
+auto eth0
+iface eth0 inet static
+address 10.78.0.2
+netmask 255.255.248.0
+gateway 10.78.0.1
+```
+**Morotai**
+```
+#A5
+auto eth0
+iface eth0 inet static
+address 10.78.0.3
+netmask 255.255.248.0
+gateway 10.78.0.1
+```
+**Ternate**
+```
+#A5
+auto eth0
+iface eth0 inet static
+address 10.78.0.4
+netmask 255.255.248.0
+gateway 10.78.0.1
+```
+**MAKASSAR**
+```
+auto lo
+iface lo inet loopback
+
+#A6
+auto eth0
+iface eth0 inet static
+address 10.78.21.162
+netmask 255.255.255.248
+gateway 10.78.21.161
+
+#A7
+auto eth1
+iface eth1 inet static
+address 10.78.21.169
+netmask 255.255.255.248
+```
+**Galesong**
+```
+#A7
+auto eth0
+iface eth0 inet static
+address 10.78.21.170
+netmask 255.255.255.248
+gateway 10.78.21.169
+```
+**Topejawa**
+```
+#A7
+auto eth0
+iface eth0 inet static
+address 10.78.21.171
+netmask 255.255.255.248
+gateway 10.78.21.169
+```
+**BELAWA**
+```
+auto lo
+iface lo inet loopback
+
+#A6
+auto eth0
+iface eth0 inet static
+address 10.78.21.163
+netmask 255.255.255.248
+gateway 10.78.21.161
+
+#A8
+auto eth1
+iface eth1 inet static
+address 10.78.21.1
+netmask 255.255.255.192
+```
+**Madini**
+```
+#A8
+auto eth0
+iface eth0 inet static
+address 10.78.21.2
+netmask 255.255.255.192
+gateway 10.78.21.1
+```
+**Baru**
+```
+#A8
+auto eth0
+iface eth0 inet static
+address 10.78.21.3
+netmask 255.255.255.192
+gateway 10.78.21.1
+```
+**KALIMANTAN-UTARA**
+```
+auto lo
+iface lo inet loopback
+
+#A9
+auto eth0
+iface eth0 inet static
+address 10.78.21.202
+netmask 255.255.255.252
+gateway 10.78.21.201
+
+#A10
+auto eth1
+iface eth1 inet static
+address 10.78.18.1
+netmask 255.255.255.0
+
+#A11
+auto eth2
+iface eth2 inet static
+address 10.78.21.181
+netmask 255.255.255.252
+```
+**Selimau**
+```
+#A10
+auto eth0
+iface eth0 inet static
+address 10.78.18.2
+netmask 255.255.255.0
+gateway 10.78.18.1
+```
+**KALIMANTAN-TIMUR**
+```
+auto lo
+iface lo inet loopback
+
+#A11
+auto eth0
+iface eth0 inet static
+address 10.78.21.182
+netmask 255.255.255.252
+gateway 10.78.21.181
+
+
+#A12
+auto eth1
+iface eth1 inet static
+address 10.78.21.177
+netmask 255.255.255.252
+
+#A13
+auto eth2
+iface eth2 inet static
+address 10.78.16.1
+netmask 255.255.254.0
+```
+**Bangkirai**
+```
+#A13
+auto eth0
+iface eth0 inet static
+address 10.78.16.2
+netmask 255.255.254.0
+gateway 10.78.16.1
+```
+**Lamaru**
+```
+#A13
+auto eth0
+iface eth0 inet static
+address 10.78.16.3
+netmask 255.255.254.0
+gateway 10.78.16.1
+```
+**KALIMANTAN-SELATAN**
+```
+auto lo
+iface lo inet loopback
+
+#A12
+auto eth0
+iface eth0 inet static
+address 10.78.21.178
+netmask 255.255.255.252
+gateway 10.78.21.178
+
+#A14
+auto eth1
+iface eth1 inet static
+address 10.78.21.97
+netmask 255.255.255.224
+
+#A15
+auto eth2
+iface eth2 inet static
+address 10.78.8.1
+netmask 255.255.248.0
+```
+**Angsana**
+```
+#A14
+auto eth0
+iface eth0 inet static
+address 10.78.21.98
+netmask  255.255.255.224
+gateway 10.78.21.97
+```
+**Bajuin**
+```
+#A15
+auto eth0
+iface eth0 inet static
+address 10.78.8.2
+netmask 255.255.248.0
+gateway 10.78.8.1
+```
+**Takisung**
+```
+#A15
+auto eth0
+iface eth0 inet static
+address 10.78.8.3
+netmask 255.255.248.0
+gateway 10.78.8.1
+```
+**Batakan**
+```
+#A15
+auto eth0
+iface eth0 inet static
+address 10.78.8.4
+netmask 255.255.248.0
+gateway 10.78.8.1
+```
+**LAMPUNG**
+```
+auto lo
+iface lo inet loopback
+
+#A16
+auto eth0
+iface eth0 inet static
+address 10.78.21.206
+netmask 255.255.255.252
+gateway 10.78.21.205
+
+#A17
+auto eth1
+iface eth1 inet static
+address 10.78.19.1 
+netmask 255.255.255.0
+```
+**Sebuku**
+```
+#A17
+auto eth0
+iface eth0 inet static
+address 10.78.19.2 
+netmask 255.255.255.0
+gateway 10.78.19.1
+```
+**Sebesi**
+```
+#A17
+auto eth0
+iface eth0 inet static
+address 10.78.19.3 
+netmask 255.255.255.0
+gateway 10.78.19.1
+```
+**Samosir**
+```
+#A18
+auto eth0
+iface eth0 inet static
+address 10.78.21.66
+netmask 255.255.255.224
+gateway 10.78.21.65
+```
+**Sibandang**
+```
+#A18
+auto eth0
+iface eth0 inet static
+address 10.78.21.67
+netmask 255.255.255.224
+gateway 10.78.21.65
+```
+**SUMATERA-UTARA**
+```
+auto lo
+iface lo inet loopback
+
+#A18
+auto eth0
+iface eth0 inet static
+address 10.78.21.68
+netmask 255.255.255.224
+gateway 10.78.21.65
+
+#19
+auto eth1
+iface eth1 inet static
+address 10.78.21.185
+netmask 255.255.255.252
+```
+**ACEH**
+```
+auto lo
+iface lo inet loopback
+
+#19
+auto eth0
+iface eth0 inet static
+address 10.78.21.186
+netmask 255.255.255.252
+gateway 10.78.21.185
+
+#20
+auto eth1
+iface eth1 inet static
+address 10.78.20.129 
+netmask 255.255.255.128
+
+#21
+auto eth2
+iface eth2 inet static
+address 10.78.21.129
+netmask 255.255.255.224
+```
+**Starland**
+```
+auto eth0
+iface eth0 inet static
+address 10.78.20.132
+netmask 255.255.255.128
+gateway 10.78.20.129
+```
+**Enang-Enang**
+```
+auto eth0
+iface eth0 inet static
+address 10.78.20.131 
+netmask 255.255.255.128
+gateway 10.78.20.129
+```
+**Berawanng-Tampu**
+```
+auto eth0
+iface eth0 inet static
+address 10.78.20.130 
+netmask 255.255.255.128
+gateway 10.78.20.129
+```
+**Sabang**
+```
+auto eth0
+iface eth0 inet static
+address 10.78.21.130
+netmask 255.255.255.224
+gateway 10.78.21.129
+```
+**Lambaro**
+```
+auto eth0
+iface eth0 inet static
+address 10.78.21.131
+netmask 255.255.255.224
+gateway 10.78.21.129
+```
+
+## Routing
+Routing yang dilakukan hanya pada Sulawesi dikarenakan routing pada Kalimantan dan Sumatera tidak berhasil. Alhasil, node hanya dapat melakukan ping antar sesama node di area(A1-A21) yang sama. Sementara pada Sulawesi, node yang berbeda area berhasil melakukan ping satu sama lain, bukan hanya pada area yang sama saja. Akan tetapi, node dari Sulawesi tidak bisa melakukan ping terhadap node di Kalimantan dan Sumatera.<br>
+**JAWA**
+```
+route add -net 10.78.20.0 netmask 255.255.255.128 gw 10.78.21.190
+route add -net 10.78.0.0 netmask 255.255.248.0 gw 10.78.21.190
+route add -net 10.78.21.160 netmask 255.255.255.248 gw 10.78.21.190
+route add -net 10.78.21.168 netmask 255.255.255.248 gw 10.78.21.190
+route add -net 10.78.21.0 netmask 255.255.255.192 gw 10.78.21.190
+
+#KALIMANTAN
+route add -net 10.78.21.200 netmask 255.255.255.252 gw 10.78.21.194
+route add -net 10.78.18.0 netmask 255.255.255.0 gw 10.78.21.194
+route add -net 10.78.21.180 netmask 255.255.255.252 gw 10.78.21.194
+route add -net 10.78.21.176 netmask 255.255.255.252 gw 10.78.21.194
+route add -net 10.78.16.0 netmask 255.255.254.0 gw 10.78.21.194
+route add -net 10.78.21.96 netmask 255.255.255.224 gw 10.78.21.194
+route add -net 10.78.8.0 netmask 255.255.248.0 gw 10.78.21.194
+
+#SUMATERA
+route add -net 10.78.21.204 netmask 255.255.255.252 gw 10.78.21.198
+route add -net 10.78.19.0 netmask 255.255.255.0 gw 10.78.21.198
+route add -net 10.78.21.64 netmask 255.255.255.224 gw 10.78.21.198
+route add -net 10.78.21.184 netmask 255.255.255.252 gw 10.78.21.198
+route add -net 10.78.20.128 netmask 255.255.255.128 gw 10.78.21.198
+route add -net 10.78.21.128 netmask 255.255.255.224 gw 10.78.21.198
+```
+**SULAWESI**
+```
+#Maluku-Utara
+route add -net 10.78.0.0 netmask 255.255.248.0 gw 10.78.20.4
+
+#Makassar
+route add -net 10.78.21.168 netmask 255.255.255.248 gw 10.78.21.162
+
+#Belawa
+route add -net 10.78.21.0 netmask 255.255.255.192 gw 10.78.21.163
+```
+**MALUKU-UTARA**
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.173.21.190
+```
+**BELAWA**
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.173.21.190
+```
+**MAKASSAR**
+```
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.173.21.190
+```
+
 ## Cisco Packet Tracker
 Dalam pengerjaan modul 4 ini, kami di berikan case untuk membuat topologi sebagai berikut 
 
